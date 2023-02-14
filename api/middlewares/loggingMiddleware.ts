@@ -5,6 +5,9 @@ import {UserRequest} from "../types.js";
 export async function logging(req: Request, res: Response, next: NextFunction) {
     const ms = new Date().getTime() - (req as UserRequest).locals.getTime();
     logger.info(`${res.socket?.remoteAddress} [${req.method}] ${req.originalUrl}: ${res.statusCode} (${res.statusMessage}) - ${ms}ms`);
+    if (res.statusCode === 200) {
+        res.send({message: 'not_found'});
+    }
 }
 
 export function writeDateLogging(req: Request, res: Response, next: NextFunction) {

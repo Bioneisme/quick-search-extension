@@ -22,9 +22,6 @@ app.use("/uploads", express.static('uploads'));
 app.use("/api/data", dataRoute);
 app.use("/api/gpt", gptRoute);
 app.use(logging);
-app.use(function(req, res){
-    res.json({});
-});
 
 app.listen(SERVER_PORT, async () => {
     logger.info(`Server Started on port ${SERVER_PORT}`);
