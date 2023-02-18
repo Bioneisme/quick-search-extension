@@ -1,5 +1,7 @@
 import axios from "axios";
 
+export const URL = `https://startoryx.live/`;
+
 export default axios.create({
-    baseURL: `http://localhost:5000/api/`
+    baseURL: baseURL + 'api/',
 });

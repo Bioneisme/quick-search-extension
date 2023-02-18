@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {createRoot} from "react-dom/client";
 import MouseTooltip from "guyllkegen-react-sticky-mouse-tooltip";
 import {setLock} from "./settingsStorage";
-import api from "./api";
+import api, {baseURL} from "./api";
 
 const TextSelection = () => {
     const [text, setText] = useState("");
@@ -100,7 +100,7 @@ const TextSelection = () => {
                 offsetY={10}
             >
                 {error && <p style={{color: 'red'}}>{error}</p>}
-                {text && <img src={`http://localhost:5000/uploads/img/${text}`} alt={text}/>}
+                {text && <img src={`${baseURL}uploads/img/${text}`} alt={text}/>}
             </MouseTooltip>
         </>
     );
